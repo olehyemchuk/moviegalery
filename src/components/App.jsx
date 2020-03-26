@@ -106,14 +106,22 @@ class App extends Component {
             </div>
           </div>
           <div className="col-4">
-            <h6>List of films</h6>
-            <p>Will watch: {this.state.moviesWillWatch.length}</p>
-            <div className="card card-body">
+            <h4>Will watch: {this.state.moviesWillWatch.length}</h4>
+            <ul className="list-group">
               {this.state.moviesWillWatch.map(movie => {
-                return <p key={movie.id}>{movie.title}</p>;
+                return (
+                  <li className="list-group-item">
+                    <div
+                      key={movie.id}
+                      className="d-flex justify-content-between"
+                    >
+                      <div>{movie.title}</div>
+                      <div>{movie.vote_average}</div>
+                    </div>
+                  </li>
+                );
               })}
-            </div>
-            <button>Reset</button>
+            </ul>
           </div>
         </div>
       </div>

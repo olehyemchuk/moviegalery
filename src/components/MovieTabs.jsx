@@ -27,7 +27,7 @@ class MovieTabs extends React.Component {
     };
 
     return (
-      <ul className="tabs nav nav-pills">
+      <ul className="nav nav-tabs">
         <li className="nav-item">
           <div
             className={getClassLink("popularity.desc")}

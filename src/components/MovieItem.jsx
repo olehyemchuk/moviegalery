@@ -56,7 +56,15 @@ class MovieItem extends Component {
               </button>
             )}
           </div>
-          <button onClick={removeMovie.bind(null, movie)}>Delete movie</button>
+          <div className="d-flex justify-content-end mt-2">
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={removeMovie.bind(null, movie)}
+            >
+              Delete movie
+            </button>
+          </div>
         </div>
       </div>
     );
