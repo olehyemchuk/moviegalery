@@ -17,7 +17,19 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log("componentDidMount");
+    this.getMovies();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevprops: ", prevProps, prevState);
+    console.log("this: ", this.props, this.state);
+    if (prevState.sort_by !== this.state.sort_by) {
+      console.log("call api");
+      this.getMovies();
+    }
+  }
+
+  getMovies = () => {
     fetch(
       `${API_URL}/discover/movie?api_key=${API_KEY_3}&sort_by=${this.state.sort_by}&language=ru-RU`
     )
@@ -31,8 +43,7 @@ class App extends Component {
           movies: data.results
         });
       });
-    console.log("after fetch");
-  }
+  };
 
   removeMovie = movie => {
     const updateMovies = this.state.movies.filter(item => {
@@ -67,7 +78,6 @@ class App extends Component {
   };
 
   render() {
-    console.log("render");
     return (
       <div className="container p-4">
         <div className="row">

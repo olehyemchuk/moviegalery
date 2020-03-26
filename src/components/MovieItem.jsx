@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 
 class MovieItem extends Component {
-  constructor() {
-    super();
+  state = {
+    willWatch: false
+  };
 
-    this.state = {
-      willWatch: false
-    };
-
-    // this.removeMovie = this.removeMovie.bind(this);
+  componentWillUnmount() {
+    console.log("componentWillUnmount: ", this.props.movie.title);
   }
 
   render() {
